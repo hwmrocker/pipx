@@ -159,6 +159,8 @@ def _get_exposed_app_paths_for_package(
     bin_symlinks = set()
     for b in local_bin_dir.iterdir():
         try:
+            is_same_file = False
+            
             # sometimes symlinks can resolve to a file of a different name
             # (in the case of ansible for example) so checking the resolved paths
             # is not a reliable way to determine if the symlink exists.
